@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>jbp_swf_primefaces</artifactId>
+    <groupId>org.salgar</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <groupId>org.salgar</groupId>
+  <artifactId>webflow-patch</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>JBoss Portal - Spring Web Flow - Primefaces - Spring Webflow Patch</name>
+  <packaging>pom</packaging>	
+
+  <dependencies>
+  </dependencies>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <modules>
+    <module>patch-webflow-faces</module>
+    <module>patch-webflow-faces-assembly</module>
+  </modules>
+</project>
