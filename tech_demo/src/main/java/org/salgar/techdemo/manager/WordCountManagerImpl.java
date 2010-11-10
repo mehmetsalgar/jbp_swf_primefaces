@@ -12,8 +12,8 @@ public class WordCountManagerImpl implements WordCountManager {
     SimpleParallelWorkflowServiceImpl parallelWorkflowService;
 
     /**
-     * @see de.tmobile.tvpp.manager.WordCountManager#asynchronousWordCount(org.salgar.techdemo.common.model.Sentence,
-     *      de.tmobile.tvpp.event.AsyncWorkflowListener)
+     * @see org.salgar.manager.WordCountManager#asynchronousWordCount(org.salgar.techdemo.common.model.Sentence,
+     *      org.salgar.event.AsyncWorkflowListener)
      */
     public String asynchronousWordCount(Sentence sentence, AsyncListener listener) {
         Object[] arguments = { sentence };

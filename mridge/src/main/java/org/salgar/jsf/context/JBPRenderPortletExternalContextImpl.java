@@ -6,12 +6,17 @@ import javax.portlet.PortletResponse;
 import javax.portlet.RenderRequest;
 
 public class JBPRenderPortletExternalContextImpl extends com.sun.faces.portlet.ExternalContextImpl {
-    private static final String NAMESPACE_PARAMETER = "org.glassbox.portlet.NAMESPACE";
+    private static final String NAMESPACE_PARAMETER = "org.salgar.portlet.NAMESPACE";
 
     public JBPRenderPortletExternalContextImpl(PortletContext context, PortletRequest request, PortletResponse response) {
         super(context, request, response);
     }
 
+    /**
+     * We have to pass the JBoss Portlet Container Namespace to Action Phase (if it would happen)
+     * so we are placing here inside of the request attributes. That is not ideeal and may be
+     * not production quality but it works...
+     */
     @Override
     public String encodeNamespace(String name) {
         String namespace = super.encodeNamespace(name);

@@ -25,7 +25,7 @@ public class AsyncWordCountListener implements AsyncListener {
     }
 
     /**
-     * @see de.tmobile.tvpp.event.AsyncWorkflowListener#doResult(java.lang.String, java.lang.Object)
+     * @see org.salgar.event.AsyncWorkflowListener#doResult(java.lang.String, java.lang.Object)
      */
     public void doResult(String correlationID, Object result) {
         Sentence returnedSentence = (Sentence) result;
@@ -36,7 +36,7 @@ public class AsyncWordCountListener implements AsyncListener {
     }
 
     /**
-     * @see de.tmobile.tvpp.event.AsyncWorkflowListener#isValid()
+     * @see org.salgar.event.AsyncWorkflowListener#isValid()
      */
     public boolean isValid() {
         return valid;

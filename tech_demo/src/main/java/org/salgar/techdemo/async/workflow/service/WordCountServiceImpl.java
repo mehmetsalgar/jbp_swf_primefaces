@@ -16,7 +16,7 @@ public class WordCountServiceImpl implements WordCountService {
     private long sleepTimePerWord = 1000;
 
     /* (non-Javadoc)
-     * @see de.tmobile.tvpp.async.workflow.service.WordCountService#countWords(de.tmobile.tvpp.common.model.Sentence)
+     * @see org.salgar.async.workflow.service.WordCountService#countWords(org.salgar.common.model.Sentence)
      */
     public Sentence countWords(Sentence sentence) {
 

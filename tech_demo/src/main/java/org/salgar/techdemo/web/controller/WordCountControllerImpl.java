@@ -20,9 +20,9 @@ public class WordCountControllerImpl implements WordCountController {
 
     /*
      * (non-Javadoc)
-     * 
-     * @see de.tmobile.tvpp.web.controller.WordCountController#executeWordCount(java.util.List,
-     * de.tmobile.tvpp.web.model.WordCountManagedBean)
+     *
+     * @see org.salgar.web.controller.WordCountController#executeWordCount(java.util.List,
+     * org.salgar.web.model.WordCountManagedBean)
      */
     public void executeWordCount(List<Sentence> sentences, WordCountManagedBean wordCountManagedBean) {
         for (Sentence sentence : sentences) {

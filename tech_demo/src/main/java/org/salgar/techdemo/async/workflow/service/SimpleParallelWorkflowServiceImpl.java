@@ -16,8 +16,8 @@ public class SimpleParallelWorkflowServiceImpl {
     private Object backendServiceInstance;
 
     /**
-     * @see de.tmobile.tvpp.api.async.workflow.service.ParallelWorkflowService#asyncExecute(java.lang.Class,
-     *      java.lang.String, java.lang.Object[], java.lang.Long, de.tmobile.tvpp.event.AsyncWorkflowListener)
+     * @see org.salgar.api.async.workflow.service.ParallelWorkflowService#asyncExecute(java.lang.Class,
+     *      java.lang.String, java.lang.Object[], java.lang.Long, org.salgar.event.AsyncWorkflowListener)
      */
     public String asyncExecute(Class<?> interfaceNameOfServiceToBeInvoked, String methodName,
             Object[] methodParameterArray, Long timeout, AsyncListener listener) throws RuntimeException {
@@ -29,11 +29,11 @@ public class SimpleParallelWorkflowServiceImpl {
     }
 
     /**
-     * @see de.tmobile.tvpp.api.async.workflow.service.ParallelWorkflowService#execute(java.lang.Class,
+     * @see org.salgar.api.async.workflow.service.ParallelWorkflowService#execute(java.lang.Class,
      *      java.lang.String, java.lang.Object[], java.lang.Long)
      */
     public Serializable execute(Class<?> interfaceNameOfServiceToBeInvoked, String methodName,
-            Object[] methodParameterArray, Long timeout) throws RuntimeException {        
+            Object[] methodParameterArray, Long timeout) throws RuntimeException {
         Object result = null;
 
         try {
@@ -100,7 +100,7 @@ public class SimpleParallelWorkflowServiceImpl {
                 }
                 parameterType[i] = parameterArray[i].getClass();
             }
-            
+
             return interfaceClass.getMethod(methodName, parameterType);
         }
     }
