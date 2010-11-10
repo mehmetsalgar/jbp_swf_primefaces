@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sf="http://www.springframework.org/tags/faces"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+	<h:panelGroup id="textConfirmationDialog-layout" style="border:1px solid">
+		<ui:include src="../rvc/techListResult-rvc.xhtml" />
+			<p:commandButton id="textConfirmationDialog-save_action" value="Save" action="#{textConfirmationDialog.saveAction}"/>
+			<p:commandButton id="textConfirmationDialog-cancel_action" value="Cancel" action="#{textConfirmationDialog.cancelAction}"/>
+	</h:panelGroup>
+</ui:composition>

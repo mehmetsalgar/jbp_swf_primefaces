@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+	<view-state id="techDemo-portlet">
+		<on-render>
+			<evaluate expression="textEntryRVC.setConsumer(textManagedBean)" />
+			<evaluate expression="textListRVC.setConsumer(textManagedBean)" />
+			<evaluate expression="textListResultRVC.setConsumer(wordCountManagedBean)" />
+		</on-render>
+		<transition on="add">
+			<!-- evaluate expression="textEntryDialog.setWordCountManagedBean(wordCountManagedBean)"/ -->
+			<!-- evaluate expression="textEntryDialog.setTextManagedBean(textManagedBean)"/ -->
+			<evaluate expression="textManagedBean.addToSentences(textEntryRVC.textEntered)" />
+			<evaluate expression="textEntryRVC.setTextEntered(null)" />
+		</transition>
+		<transition on="reverse">
+			<!-- evaluate expression="textEntryDialog.setWordCountManagedBean(wordCountManagedBean)"/> 
+				<evaluate expression="textEntryDialog.setTextManagedBean(textManagedBean)"/ -->
+			<evaluate expression="textManagedBean.reverse(textEntryRVC)" />
+		</transition>
+		<transition on="wordCount">
+			<!-- evaluate expression="wordCountManagedBean.sentences.clear()" / -->
+			<evaluate
+				expression="wordCountController.executeWordCount(textManagedBean.sentences, wordCountManagedBean)" />
+		</transition>
+		<transition on="refresh" />
+	</view-state>
+</flow>

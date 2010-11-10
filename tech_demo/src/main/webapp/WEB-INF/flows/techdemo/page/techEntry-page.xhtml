@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sf="http://www.springframework.org/tags/faces"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.prime.com.tr/ui" id="techDemoPage">
+
+	<h:form id="textEntryPageForm">	
+		<input name="execution" type="hidden" value="${flowExecutionContext.key}"/>
+		<ui:include src="../dialog/techEntry-dialog.xhtml">
+			<ui:param name="rerenderAreasOnAddSentenceToList"
+				value="textEntryDialog-layout,textListRVC_form" />
+			<ui:param name="rerenderAreasOnWordCount"
+				value="textListResultRVC-form" />
+		</ui:include>
+	</h:form>
+
+</ui:composition>

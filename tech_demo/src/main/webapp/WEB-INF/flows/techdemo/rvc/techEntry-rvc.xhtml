@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sf="http://www.springframework.org/tags/faces"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+	<p:outputPanel id="textEntryRVC-input_layout" ajaxRendered="true"
+		layout="block" style="border:1px solid">
+		<h:outputText value="Text Entry: " />
+		<h:inputText id="textEntryRVC-sentence_input"
+			value="#{textEntryRVC.textEntered}" style="width:600px">
+			<f:validateLength minimum="2" />
+		</h:inputText>
+		<!-- rich:message id="textEntryRVC-sentence_inputError" for="textEntryRVC-sentence_input"/-->
+	</p:outputPanel>
+	<p:outputPanel id="textEntryRVC-actions_layout" ajaxRendered="true"
+		layout="block" style="border:1px solid">
+		<h:panelGrid id="textEntryRVC-actionsInner_layout" columns="2"
+			cellspacing="0" cellpadding="0">
+
+			<p:commandButton id="textEntryRVC-addSentence_action"
+				value="Add Sentence to List" action="add"
+				update=":textEntryPageForm:textEntryRVC-sentence_input,:textEntryPageForm:sentence_pf_table"
+				ajax="true">
+			</p:commandButton>
+			<p:commandButton id="textEntryRVC-reverse_action" value="Reverse"
+				action="reverse"
+				update=":textEntryPageForm:textEntryRVC-sentence_input,:textEntryPageForm:sentence_pf_table"
+				ajax="true">
+			</p:commandButton>
+			<p:commandButton id="textEntryRVC-wordCountList_action"
+				action="wordCount" value="Word Count on Text List" ajax="true"
+				update=":textEntryPageForm:list_results_rcv_pf_table" >
+			</p:commandButton>
+		</h:panelGrid>
+	</p:outputPanel>
+</ui:composition>
+

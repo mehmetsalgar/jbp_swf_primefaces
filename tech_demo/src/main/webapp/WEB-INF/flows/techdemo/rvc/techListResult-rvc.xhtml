@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sf="http://www.springframework.org/tags/faces"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+	<h:panelGroup id="textListResultRVC-layout" style="border:1px solid">
+		<p:dataTable id="list_results_rcv_pf_table"
+			value="#{textListResultRVC.sentences}" var="sentence">
+			<p:column>
+				<f:facet name="header">
+						WordCount
+					</f:facet>
+					#{sentence.wordCount}
+				</p:column>
+			<p:column>
+				<f:facet name="header">
+						Sentence
+					</f:facet>
+					#{sentence.rawValue}
+				</p:column>
+		</p:dataTable>
+		<h:panelGroup>
+			<h:graphicImage value="/images/progress_blu.gif" />
+		</h:panelGroup>
+	</h:panelGroup>
+	<div style="visibility: hidden;"><p:commandButton
+		id="wordcount_refresh_action"
+		update=":textEntryPageForm:list_results_rcv_pf_table" action="refresh" />
+	</div>
+
+	<p:push id="cometPush" onpublish="handlePublish" channel="text_list" />
+
+	<script type="text/javascript">
+		function handlePublish(pushed) {
+			alert('Success');			
+			PrimeFaces.ajax.AjaxRequest('/portal/portal/default/TechDemoPortlet/TechDemoPortletWindow?action=1&amp;execution=e1s1',{formId:'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm',global:true},{'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm:wordcount_refresh_action':'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm:wordcount_refresh_action','primefacesPartialUpdate':'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm:list_results_rcv_pf_table'});return false;			
+		}
+	</script>
+</ui:composition>

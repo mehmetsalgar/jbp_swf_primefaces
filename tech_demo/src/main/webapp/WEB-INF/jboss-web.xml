@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE jboss-app PUBLIC
+   "-//JBoss//DTD Web Service Reference 4.2//EN"
+   "jboss-web_4_2.dtd">
+
+<jboss-web>
+	<class-loading java2ClassLoadingCompliance="true" />
+</jboss-web>
