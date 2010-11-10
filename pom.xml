@@ -63,7 +63,7 @@
 	      <url>http://repository.prime.com.tr/</url>
 	    </repository>
 	    <repository>
-	      <id>Springsource Bundles External</id>
+	      <id>Springsource Bundles Release</id>
 	      <url>http://repository.springsource.com/maven/bundles/release</url>
 	    </repository>
 	    <repository>

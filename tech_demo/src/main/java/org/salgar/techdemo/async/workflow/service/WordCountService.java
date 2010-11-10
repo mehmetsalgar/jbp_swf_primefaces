@@ -1,9 +1,11 @@
 package org.salgar.techdemo.async.workflow.service;
 
+import java.util.List;
+
 import org.salgar.techdemo.common.model.Sentence;
 
 public interface WordCountService {
 
-    public abstract Sentence countWords(Sentence sentence);
+    public abstract List<Sentence> countWords(List<Sentence> sentences);
 
 }

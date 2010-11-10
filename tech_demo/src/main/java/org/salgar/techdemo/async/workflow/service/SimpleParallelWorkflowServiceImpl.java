@@ -29,8 +29,8 @@ public class SimpleParallelWorkflowServiceImpl {
     }
 
     /**
-     * @see org.salgar.api.async.workflow.service.ParallelWorkflowService#execute(java.lang.Class,
-     *      java.lang.String, java.lang.Object[], java.lang.Long)
+     * @see org.salgar.api.async.workflow.service.ParallelWorkflowService#execute(java.lang.Class, java.lang.String,
+     *      java.lang.Object[], java.lang.Long)
      */
     public Serializable execute(Class<?> interfaceNameOfServiceToBeInvoked, String methodName,
             Object[] methodParameterArray, Long timeout) throws RuntimeException {
@@ -92,16 +92,24 @@ public class SimpleParallelWorkflowServiceImpl {
     public static class ReflectionUtils {
         public static Method getMethod(Class<?> interfaceClass, String methodName, Object[] parameterArray)
                 throws SecurityException, NoSuchMethodException {
-            Class<?>[] parameterType = null;
-            parameterType = new Class<?>[parameterArray.length];
-            for (int i = 0, n = parameterArray.length; i < n; i++) {
-                if (parameterType == null) {
-                    parameterType = new Class<?>[parameterArray.length];
+            for (Method method : interfaceClass.getMethods()) {
+                if (!methodName.equals(method.getName())) {
+                    continue;
                 }
-                parameterType[i] = parameterArray[i].getClass();
-            }
 
-            return interfaceClass.getMethod(methodName, parameterType);
+                Class<?>[] parameterTypes = method.getParameterTypes();
+                boolean matches = true;
+                for (int i = 0, n = parameterTypes.length; i < n; i++) {
+                    if (!parameterTypes[i].isAssignableFrom(parameterArray[i].getClass())) {
+                        matches = false;
+                        break;
+                    }
+                }
+                if (matches) {
+                    return method;
+                }
+            }
+            return null;
         }
     }
 }

@@ -1,6 +1,7 @@
 package org.salgar.techdemo.async.workflow.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import org.apache.log4j.Logger;
@@ -18,16 +19,17 @@ public class WordCountServiceImpl implements WordCountService {
     /* (non-Javadoc)
      * @see org.salgar.async.workflow.service.WordCountService#countWords(org.salgar.common.model.Sentence)
      */
-    public Sentence countWords(Sentence sentence) {
-
-        ArrayList<Word> words = new ArrayList<Word>();
-        StringTokenizer tokenizer = new StringTokenizer(sentence.getRawValue(), " \t\n\r\f.,;");
-        while(tokenizer.hasMoreTokens()) {
-            String token = tokenizer.nextToken();
-            words.add(new Word(token));
+    public List<Sentence> countWords(List<Sentence> sentences) {        
+        for (Sentence sentence : sentences) {
+            ArrayList<Word> words = new ArrayList<Word>();
+            StringTokenizer tokenizer = new StringTokenizer(sentence.getRawValue(), " \t\n\r\f.,;");
+            while(tokenizer.hasMoreTokens()) {
+                String token = tokenizer.nextToken();
+                words.add(new Word(token));
+            }
+            sentence.setWords(words);
         }
-        sentence.setWords(words);
-
+        
         try {
             Thread.sleep(2 * sleepTimePerWord);  // sleep a second for every word ...
         }
@@ -35,7 +37,7 @@ public class WordCountServiceImpl implements WordCountService {
             logger.error(e.getMessage(), e);
         }
 
-        return sentence;
+        return sentences;
     }
 
 

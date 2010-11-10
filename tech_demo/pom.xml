@@ -193,7 +193,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.salgar</groupId>
-			<artifactId>patch-webflow-faces-assembly</artifactId>
+			<artifactId>oatch-webflow-faces-assembly</artifactId>
 			<version>${project.version}</version>
 			<exclusions>
 				<exclusion>

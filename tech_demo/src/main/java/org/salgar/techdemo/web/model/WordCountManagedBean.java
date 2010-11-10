@@ -53,8 +53,8 @@ public class WordCountManagedBean implements TextListResultBackingBeanConsumer, 
         return consumer.isWordCountRunning();
     }
     
-    public void addSentence(Sentence sentence) {
-       consumer.addSentence(sentence);        
+    public void addSentences(List<Sentence> sentence) {
+       consumer.addSentences(sentence);        
     }
 
     public void afterPropertiesSet() throws Exception {

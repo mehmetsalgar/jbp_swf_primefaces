@@ -21,8 +21,8 @@ public class WordCountConsumerStrategyImpl implements WordCountConsumerStrategy,
         return false;
     }
 
-    public void addSentence(Sentence sentence) {
-        countManagedModel.getSentences().add(sentence);
+    public void addSentences(List<Sentence> sentence) {
+        countManagedModel.getSentences().addAll(sentence);
     }
 
 }

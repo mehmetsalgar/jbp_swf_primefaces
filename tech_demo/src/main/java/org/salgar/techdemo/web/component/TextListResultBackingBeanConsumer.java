@@ -5,7 +5,7 @@ import java.util.List;
 import org.salgar.techdemo.common.model.Sentence;
 
 public interface TextListResultBackingBeanConsumer {
-    public void addSentence(Sentence sentence);
+    public void addSentences(List<Sentence> sentences);
     public List<Sentence> getSentences();
     public boolean isWordCountRunning();
 

@@ -1,6 +1,7 @@
 package org.salgar.techdemo.web.listener;
 
 import org.apache.log4j.Logger;
+import java.util.List;
 import org.atmosphere.cpr.Broadcaster;
 import org.salgar.techdemo.common.model.Sentence;
 import org.salgar.techdemo.listener.AsyncListener;
@@ -28,9 +29,10 @@ public class AsyncWordCountListener implements AsyncListener {
      * @see org.salgar.event.AsyncWorkflowListener#doResult(java.lang.String, java.lang.Object)
      */
     public void doResult(String correlationID, Object result) {
-        Sentence returnedSentence = (Sentence) result;
+        @SuppressWarnings({ "unchecked", "rawtypes" })
+        List<Sentence> returnedSentences= (List) result;
         if (valid) {
-            consumer.addSentence(returnedSentence);
+            consumer.addSentences(returnedSentences);
         }
         broadcaster.broadcast("sentences are refreshed");
     }
