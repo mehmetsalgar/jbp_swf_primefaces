@@ -6,6 +6,8 @@ import org.salgar.techdemo.common.model.Sentence;
 
 public interface WordCountManagedModel {
 
-    public abstract List<Sentence> getSentences();
+    public abstract List<Sentence> getSentences();    
+    public abstract void setWordCountRunning(boolean wordCountRunning);
+    public abstract boolean isWordCountRunning();
 
 }

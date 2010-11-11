@@ -24,7 +24,10 @@
 			<!-- evaluate expression="wordCountManagedBean.sentences.clear()" / -->
 			<evaluate
 				expression="wordCountController.executeWordCount(textManagedBean.sentences, wordCountManagedBean)" />
+			<evaluate expression="wordCountManagedBean.setWordCountRunning(true)"></evaluate>
 		</transition>
-		<transition on="refresh" />
+		<transition on="refresh" >
+			<evaluate expression="wordCountManagedBean.setWordCountRunning(false)"></evaluate>
+		</transition>
 	</view-state>
 </flow>

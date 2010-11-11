@@ -23,8 +23,8 @@
 					#{sentence.rawValue}
 				</p:column>
 		</p:dataTable>
-		<h:panelGroup>
-			<h:graphicImage value="/images/progress_blu.gif" />
+		<h:panelGroup id="progress_panel">
+			<h:graphicImage value="/images/progress_blu.gif" rendered="#{wordCountManagedBean.wordCountRunning}" />
 		</h:panelGroup>
 	</h:panelGroup>
 	<div style="visibility: hidden;"><p:commandButton
@@ -35,8 +35,7 @@
 	<p:push id="cometPush" onpublish="handlePublish" channel="text_list" />
 
 	<script type="text/javascript">
-		function handlePublish(pushed) {
-			alert('Success');			
+		function handlePublish(pushed) {			
 			PrimeFaces.ajax.AjaxRequest('/portal/portal/default/TechDemoPortlet/TechDemoPortletWindow?action=1&amp;execution=e1s1',{formId:'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm',global:true},{'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm:wordcount_refresh_action':'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm:wordcount_refresh_action','primefacesPartialUpdate':'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm:list_results_rcv_pf_table'});return false;			
 		}
 	</script>

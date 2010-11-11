@@ -25,4 +25,9 @@ public class WordCountConsumerStrategyImpl implements WordCountConsumerStrategy,
         countManagedModel.getSentences().addAll(sentence);
     }
 
+    public void setWordCountRunning(boolean wordCountRunning) {
+        countManagedModel.setWordCountRunning(wordCountRunning);
+        
+    }
+
 }

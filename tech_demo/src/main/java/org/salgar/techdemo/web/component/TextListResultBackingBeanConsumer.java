@@ -8,5 +8,6 @@ public interface TextListResultBackingBeanConsumer {
     public void addSentences(List<Sentence> sentences);
     public List<Sentence> getSentences();
     public boolean isWordCountRunning();
+    public void setWordCountRunning(boolean wordCountRunning);
 
 }
