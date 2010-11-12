@@ -80,7 +80,6 @@
 			</exclusions>
 			<scope>provided</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -116,7 +115,7 @@
 		<dependency>
 			<groupId>org.atmosphere</groupId>
 			<artifactId>atmosphere-runtime</artifactId>
-			<version>0.5</version>
+			<version>${atmosphere.version}</version>
 			<scope>provided</scope>
 		</dependency>
 

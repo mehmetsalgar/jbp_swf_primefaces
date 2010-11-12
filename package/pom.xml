@@ -3,14 +3,38 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>jbp_swf_primefaces</artifactId>
-    <groupId>org.salgar</groupId>
-    <version>1.0-SNAPSHOT</version>
+	<artifactId>jbp_swf_primefaces</artifactId>
+	<groupId>org.salgar</groupId>
+	<version>1.0-SNAPSHOT</version>
   </parent>
   <groupId>org.salgar</groupId>
   <artifactId>package</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>JBoss Portal - Spring Web Flow - Primefaces - Package</name>
+  <build>  	
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>package</id>
+					<phase>package</phase>
+					<goals>
+						<goal>attached</goal>
+					</goals>
+					<configuration>
+						<appendAssemblyId>false</appendAssemblyId>
+						<descriptors>
+							<descriptor>${basedir}/src/main/assembly/package.xml</descriptor>
+						</descriptors>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
+	</plugins>
+  </build>
+
   <!-- Comet NoiProtocol configuration -->
   <!-- Remove Reply Header Filter -->
   <!-- change JSF Libraries -->
@@ -21,12 +45,47 @@
   <!-- change el-api -->
   
   <dependencies>
+  	<!-- JSF -->
+  	<dependency>
+		<groupId>javax.faces</groupId>
+		<artifactId>jsf-api</artifactId>
+		<version>${faces.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>javax.faces</groupId>
+		<artifactId>jsf-impl</artifactId>
+		<version>${faces.version}</version>
+	</dependency>
+	<!-- Comet Atmosphere -->
     	<dependency>
-	            <groupId>org.atmosphere</groupId>
-	            <artifactId>atmosphere-runtime</artifactId>
-	            <version>0.5</version>
-	            <scope>provided</scope>
+    		<groupId>org.atmosphere</groupId>
+    		<artifactId>atmosphere-runtime</artifactId>
+    		<version>${atmosphere.version}</version>	    
         </dependency>
+        <!-- JBoss EL -->
+        <dependency>
+		<groupId>org.jboss.el</groupId>
+		<artifactId>jboss-el</artifactId>
+		<version>${el.impl.api.version}</version>
+		<exclusions>
+			<exclusion>
+				<groupId>javax.el</groupId>
+				<artifactId>el-api</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>javax.el</groupId>
+		<artifactId>el-api</artifactId>
+		<version>${el.api.version}</version>
+	</dependency>
+	<!-- Techdemo -->
+	<dependency>
+		<groupId>org.salgar</groupId>
+		<artifactId>tech_demo</artifactId>		
+		<version>${project.version}</version>
+		<type>war</type>
+	</dependency>
   </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
