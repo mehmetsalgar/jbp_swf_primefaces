@@ -1,0 +1,25 @@
+<component xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/component/1.1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/component/1.1.0 http://maven.apache.org/xsd/component-1.1.0.xsd"> 
+  	<dependencySets>
+	   	<!-- JSF libs-->
+	   	<dependencySet>
+		    <includes>
+			<include>org.salgar:portal-filter</include>
+		    </includes>
+		    <unpack>false</unpack>
+		    <useTransitiveDependencies>false</useTransitiveDependencies>
+		    <outputDirectory>default/deploy/jboss-portal.sar/lib</outputDirectory> 
+	          </dependencySet>	    	       
+	  </dependencySets>
+	  <fileSets>
+	  	<!-- Copying web.xml with filter combination for jboss-portal.sar/portal-server.war -->
+		<fileSet>
+		    <directory>target/classes/server</directory>
+		    <includes>
+			<include>web.xml</include>
+		    </includes>
+		    <outputDirectory>default/deploy/jboss-portal.sar/portal-server.war/WEB-INF</outputDirectory>
+		</fileSet>
+  	</fileSets>
+ </component>

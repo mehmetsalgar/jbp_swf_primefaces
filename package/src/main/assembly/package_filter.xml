@@ -9,7 +9,7 @@
 
     <componentDescriptors>
             <componentDescriptor>src/main/assembly/component_base.xml</componentDescriptor>
-            <componentDescriptor>src/main/assembly/component_client.xml</componentDescriptor>
+            <componentDescriptor>src/main/assembly/component_server.xml</componentDescriptor>
     </componentDescriptors>
    
 </assembly>

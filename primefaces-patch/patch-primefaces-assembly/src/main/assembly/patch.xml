@@ -16,7 +16,12 @@
 		</include>
 	    </includes>
 	    <useTransitiveDependencies>false</useTransitiveDependencies>
-	    <unpack>true</unpack>	 
+	    <unpack>true</unpack>
+	    <unpackOptions>
+		<excludes>
+		    <exclude>**/jquery.js</exclude>		   		   
+		</excludes>
+	    </unpackOptions>
           </dependencySet>
     	<dependencySet>
 	    <includes>
@@ -27,8 +32,7 @@
 	    <useTransitiveDependencies>false</useTransitiveDependencies>
 	    <unpack>true</unpack>
 	    <unpackOptions>
-		<excludes>
-		    <exclude>**/jquery.js</exclude>		   
+		<excludes>		   
 		    <exclude>org/primefaces/application/PrimeFacesPhaseListener*.class</exclude>
 		</excludes>
 	    </unpackOptions>

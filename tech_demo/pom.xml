@@ -95,6 +95,7 @@
 			<artifactId>jsf-facelets</artifactId>
 			<version>${facelets.version}</version>
 		</dependency>
+
 		<!-- Primefaces -->
 		<dependency>
 			<groupId>org.salgar</groupId>
@@ -111,6 +112,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+
 		<!-- Atmosphere (Comet) -->
 		<dependency>
 			<groupId>org.atmosphere</groupId>
