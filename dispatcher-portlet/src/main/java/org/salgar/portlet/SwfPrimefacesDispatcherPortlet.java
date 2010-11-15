@@ -8,13 +8,26 @@ import javax.portlet.ActionResponse;
 
 import org.springframework.web.portlet.DispatcherPortlet;
 
+/**
+ * Subclasses DispatcherPortlet to implement the necessary functionality for Spring Workflow
+ * and Primefaces to work with JBoss Portal
+ * 
+ * @author salgar
+ *
+ */
 public class SwfPrimefacesDispatcherPortlet extends DispatcherPortlet {
-    /**
-     * Portlet Containter Namespace parameter is embedded inside of the request parameters
-     * we have to pass this to the render request.....
-     */
-    private static final String NAMESPACE_PARAMETER = "org.salgar.portlet.NAMESPACE";
     
+    /**
+     * This method is responsible of receiving the JSF Submit request an process HTTP POST and then
+     * redirect request to simulate the render phase of a portlet. Unfortunately during this operation
+     * POST parameters would be lost but some of them are important for the Primefaces.
+     * 
+     * For this reason we are coping the parameters that are relevant for the Primefaces and pass
+     * them to the render phase.
+     * 
+     * Also the browsers has a tendency to cache the HTTP GET request, to prevent this we are adding a
+     * random valued request parameter.
+     */
     @Override
     protected void doActionService(ActionRequest request, ActionResponse response) throws Exception {
         super.doActionService(request, response);
