@@ -16,7 +16,7 @@ import org.springframework.web.portlet.DispatcherPortlet;
  *
  */
 public class SwfPrimefacesDispatcherPortlet extends DispatcherPortlet {
-    
+    private static final String NAMESPACE_PARAMETER = "org.salgar.portlet.NAMESPACE";
     /**
      * This method is responsible of receiving the JSF Submit request an process HTTP POST and then
      * redirect request to simulate the render phase of a portlet. Unfortunately during this operation
