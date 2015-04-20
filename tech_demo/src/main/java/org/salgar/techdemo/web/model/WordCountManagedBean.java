@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.primefaces.context.RequestContext;
 import org.salgar.techdemo.common.model.Sentence;
 import org.salgar.techdemo.web.component.TextListResultBackingBeanConsumer;
 import org.salgar.techdemo.web.consumerstrategy.WordCountConsumerStrategy;
@@ -71,5 +72,11 @@ public class WordCountManagedBean implements TextListResultBackingBeanConsumer, 
 
     public void setConsumer(TextListResultBackingBeanConsumer consumer) {
         this.consumer = consumer;
+    }
+    
+    public void connect() {
+    	RequestContext requestContext = RequestContext.getCurrentInstance();
+    	
+    	requestContext.execute("PF('textSocket').connect('/*')");
     }
 }

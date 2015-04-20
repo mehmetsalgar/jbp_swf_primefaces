@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
-import org.primefaces.comet.CometContext;
+//import org.primefaces.comet.CometContext;
 import org.salgar.techdemo.common.model.Sentence;
 import org.salgar.techdemo.web.listener.GuiRefreshCallback;
 
@@ -36,7 +36,7 @@ public class TextListResultBackingBean extends AbstractRVCBackingBean implements
     }
 
     public void doGuiRefresh() {
-        CometContext.publish("text_list", "sentences are refreshed");
+        //CometContext.publish("text_list", "sentences are refreshed");
     }
 
     public void setConsumer(TextListResultBackingBeanConsumer consumer) {

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.salgar.comet.CometServiceLocator;
+//import org.salgar.comet.CometServiceLocator;
 import org.salgar.techdemo.common.model.Sentence;
 import org.salgar.techdemo.manager.WordCountManager;
 import org.salgar.techdemo.web.listener.AsyncWordCountListener;
@@ -24,8 +24,10 @@ public class WordCountControllerImpl implements WordCountController {
      * org.salgar.web.model.WordCountManagedBean)
      */
     public void executeWordCount(List<Sentence> sentences, WordCountManagedBean wordCountManagedBean) {
-        AsyncWordCountListener listener = new AsyncWordCountListener(wordCountManagedBean, CometServiceLocator
-                .getInstance().getBroadcaster());
+        //AsyncWordCountListener listener = new AsyncWordCountListener(wordCountManagedBean, CometServiceLocator
+        //        .getInstance().getBroadcaster());
+                
+        AsyncWordCountListener listener = new AsyncWordCountListener(wordCountManagedBean);
         wordCountManager.asynchronousWordCount(sentences, listener);
     }
 

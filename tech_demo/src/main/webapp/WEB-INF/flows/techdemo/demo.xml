@@ -22,6 +22,7 @@
 		</transition>
 		<transition on="wordCount">
 			<!-- evaluate expression="wordCountManagedBean.sentences.clear()" / -->
+			<!-- evaluate expression="wordCountManagedBean.connect()"></evaluate-->
 			<evaluate
 				expression="wordCountController.executeWordCount(textManagedBean.sentences, wordCountManagedBean)" />
 			<evaluate expression="wordCountManagedBean.setWordCountRunning(true)"></evaluate>

@@ -2,6 +2,12 @@ package org.salgar.comet;
 
 import org.atmosphere.cpr.Broadcaster;
 
+/**
+ * ServiceLocator to locate Comet broadcaster.
+ * 
+ * @author salgar
+ *
+ */
 public class CometServiceLocator {
     private volatile static CometServiceLocator instance;    
     private Broadcaster broadcaster;

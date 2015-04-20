@@ -5,15 +5,15 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:sf="http://www.springframework.org/tags/faces"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:p="http://primefaces.prime.com.tr/ui">
+	xmlns:p="http://primefaces.org/ui">
 
 	<h:panelGroup id="textListRVC-layout" style="border:1px solid">
 		<p:dataTable id="sentence_pf_table" value="#{textListRVC.sentences}"
 			var="sentence">
 			<p:column>
 				<f:facet name="header">
-				Primefaces Sentences
-			</f:facet>
+					Primefaces Sentences
+				</f:facet>
 				<h:outputText value="#{sentence}" />
 			</p:column>
 		</p:dataTable>

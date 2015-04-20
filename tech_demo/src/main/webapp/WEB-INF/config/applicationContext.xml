@@ -82,33 +82,6 @@
 		scope="prototype" />
 
 
-	<!-- ############################################# -->
-	<!-- ### Pages ("RootViews") ### -->
-	<!-- ############################################# -->
-	<!-- bean id="textEntryPage" class="org.salgar.techdemo.web.page.TextEntryPageBackingBean" 
-		scope="flash" init-method="initPage" -->
-	<!-- property name="dialogs"> <list> <ref bean="textEntryDialog"/> </list> 
-		</property -->
-	<!-- property name="pageName" value="textEntryPage" / -->
-	<!-- /bean -->
-
-	<!-- ############################################# -->
-	<!-- ### Subviews (Dialogs) ### -->
-	<!-- ############################################# -->
-	<!-- bean id="textEntryDialog" class="org.salgar.techdemo.web.dialog.TextEntryDialogBackingBean" 
-		scope="flash" init-method="initDialog" -->
-	<!-- property name="wordCountController" ref="wordCountController"/ -->
-	<!--property name="textManagedBean" ref="textManagedBean"/ -->
-	<!--property name="wordCountManagedBean" ref="wordCountManagedBean"/ -->
-	<!-- property name="reusableViewComponents"> <list> <ref bean="textEntryRVC"/> 
-		<ref bean="textListRVC"/> <ref bean="textListResultRVC"/> </list> </property -->
-	<!-- /bean -->
-
-	<!-- bean id="textConfirmationDialog" class="org.salgar.techdemo.web.dialog.TextConfirmationDialogBackingBean" 
-		scope="request" init-method="initDialog"> <property name="wordCountController" 
-		ref="wordCountController"/> <property name="wordCountManagedBean" ref="wordCountManagedBean"/> 
-		<property name="textManagedBean" ref="textManagedBean"/> <property name="reusableViewComponents"> 
-		<list> <ref bean="textListResultRVC"/> </list> </property> </bean -->
 
 	<!-- ############################################# -->
 	<!-- ### Reusable View Components (RVCs) ### -->

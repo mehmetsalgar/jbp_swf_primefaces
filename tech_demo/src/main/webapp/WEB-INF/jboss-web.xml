@@ -5,5 +5,5 @@
    "jboss-web_4_2.dtd">
 
 <jboss-web>
-	<class-loading java2ClassLoadingCompliance="true" />
+	<!--class-loading java2ClassLoadingCompliance="true" /-->
 </jboss-web>

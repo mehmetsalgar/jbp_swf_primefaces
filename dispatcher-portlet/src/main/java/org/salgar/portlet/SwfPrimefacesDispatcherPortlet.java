@@ -52,13 +52,16 @@ public class SwfPrimefacesDispatcherPortlet extends DispatcherPortlet {
             Enumeration en = request.getParameterNames();
             while (en.hasMoreElements()) {
                 String param = (String) en.nextElement();
-                if (param.indexOf("primefaces") >= 0) {
-                    String values[] = request.getParameterValues(param);
-                    response.setRenderParameter(param, values);
-                } else if(param.indexOf(NAMESPACE_PARAMETER) >= 0) {
-                    String values[] = request.getParameterValues(param);
-                    response.setRenderParameter(param, values);                    
-                }
+//                if (param.indexOf("primefaces") >= 0) {
+//                    String values[] = request.getParameterValues(param);
+//                    response.setRenderParameter(param, values);
+//                } else if(param.indexOf(NAMESPACE_PARAMETER) >= 0) {
+//                    String values[] = request.getParameterValues(param);
+//                    response.setRenderParameter(param, values);                    
+//                }
+                String values[] = request.getParameterValues(param);
+                response.setRenderParameter(param, values);
+                
             }
         } catch (IllegalStateException ex) {
             // Ignore in case sendRedirect was already set.

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<f:view contentType="text/html" encoding="UTF-8"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:sf="http://www.springframework.org/tags/faces"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:p="http://primefaces.prime.com.tr/ui">
-
-	<f:view contentType="text/html" encoding="UTF-8">
-		<head>
-		<title>Glassbox</title>
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Tech Demo JBoss GateIn Portal - Spring Webflow -
+			Primefaces</title>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 		<sf:resource path="css/style.css" />
-		<p:resources />
-		</head>
-		<body>
+	</h:head>
+	<body>
+		<p:socket id="cometPush" onMessage="handlePublish"
+			channel="/text_list" widgetVar="textSocket" />
 		<ui:include src="page/techEntry-page.xhtml" />
-		</body>
-	</f:view>
-</ui:composition>
+	</body>
+</f:view>

@@ -84,7 +84,7 @@ public class SimpleParallelWorkflowServiceImpl {
                 result = new RuntimeException(e);
             }
 
-            listener.doResult(correlationID, result);
+            listener.doResult(result);
         }
 
     }

@@ -3,7 +3,6 @@ package org.salgar.jsf.viewhandler;
 import java.io.IOException;
 import java.io.Writer;
 
-
 import javax.faces.FacesException;
 import javax.faces.application.StateManager;
 import javax.faces.application.ViewHandler;
@@ -17,6 +16,7 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import com.sun.facelets.FaceletViewHandler;
+
 /**
  * <p>
  * Concrete implementation of <code>ViewHandler</code> for use in a portlet environment. This implementation delegates
@@ -34,6 +34,10 @@ public final class JBPViewHandler extends FaceletViewHandler {
         super(parent);
     }
 
+    /**
+     * Null Writer so the under laying JSF framework can do something to the stream response which would be an invalid
+     * action against the portal.
+     */
     private static final Writer nullWriter = new Writer() {
         public void close() throws IOException {
             // Do nothing
@@ -48,16 +52,21 @@ public final class JBPViewHandler extends FaceletViewHandler {
         }
     };
 
+    /**
+     * Delivers nullWriter instead of a real writer so it would not effect the portal response writer.
+     * 
+     * 
+     */
     protected ResponseWriter createResponseWriter(FacesContext context) throws IOException, FacesException {
         ResponseWriter writer;
         RenderKit renderKit = context.getRenderKit();
         ExternalContext extContext = context.getExternalContext();
-        if(extContext.getRequest() instanceof ActionRequest) {
+        if (extContext.getRequest() instanceof ActionRequest) {
             writer = renderKit.createResponseWriter(nullWriter, "text/html", "UTF-8");
-            
+
             return writer;
         }
-                       
+
         // Object lifecyclePhaseAttr = extContext.getRequestMap().get(Bridge.PORTLET_LIFECYCLE_PHASE);
         // if (Bridge.PortletPhase.RenderPhase.equals(lifecyclePhaseAttr)) {
         RenderRequest request = (RenderRequest) extContext.getRequest();
@@ -79,10 +88,13 @@ public final class JBPViewHandler extends FaceletViewHandler {
         // } else {
         // writer = super.createResponseWriter(context);
         // }
-        
+
         return writer;
     }
 
+    /**
+     * Provide a state writer in Portal environment.
+     */
     @Override
     public void writeState(FacesContext context) throws IOException {
         StringBuilderWriter stringBuilderWriter = StringBuilderWriter.getInstance();
@@ -99,6 +111,13 @@ public final class JBPViewHandler extends FaceletViewHandler {
         return parent;
     }
 
+    /**
+     * Writer implementation for the JSF State which travels inside of a ThreadLocal. So when stateWrited called instead
+     * of writting to the response it is written to the StringBuilder.
+     * 
+     * @author salgar
+     * 
+     */
     private static final class StringBuilderWriter extends Writer {
 
         private static final ThreadLocal<StringBuilderWriter> instance = new ThreadLocal<StringBuilderWriter>();
@@ -186,7 +205,15 @@ public final class JBPViewHandler extends FaceletViewHandler {
         public String toString() {
             return mBuilder.toString();
         }
-
+        
+        /**
+         * If JSF State is written it would replace the original writer with a clone of
+         * the original writer and commit changes to this writer instead of the real response
+         * writer. After this operation complete, it replace old writer so it stay valid for the
+         * point of Portal.
+         * 
+         * @throws IOException
+         */
         @SuppressWarnings("unused")
         public void flushToWriter() throws IOException {
             // TODO: Buffer?
@@ -208,21 +235,21 @@ public final class JBPViewHandler extends FaceletViewHandler {
             }
         }
     }
-    
+
     @Override
     public UIViewRoot createView(FacesContext context, String viewId) {
         UIViewRoot root = super.createView(context, viewId);
-        
+
         try {
             UIViewRoot portletRoot = new JBPViewRoot();
             portletRoot.setViewId(root.getViewId());
             portletRoot.setLocale(root.getLocale());
             portletRoot.setRenderKitId(root.getRenderKitId());
             root = portletRoot;
-         } catch (Exception e) {
+        } catch (Exception e) {
             throw new FacesException(e);
-         }
-         
-         return root;
-    }       
+        }
+
+        return root;
+    }
 }

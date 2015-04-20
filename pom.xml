@@ -84,17 +84,18 @@
 		<module>dispatcher-portlet</module>
 		<module>mridge</module>
 		<module>portal-filter</module>
-		<module>primefaces-patch</module>
-		<module>webflow-patch</module>
-		<module>comet</module>
-    		<module>tech_demo</module>          
-    		<module>package</module>    		    
-  	</modules>
+		<!--module>primefaces-patch</module-->
+		<!--module>webflow-patch</module-->
+		<!--module>comet</module-->
+		<module>spring-faces-patch</module>
+    	<module>tech_demo</module>          
+    	<module>package</module>
+  </modules>
 	
 	<properties>
 		<aspectj.version>1.6.8</aspectj.version>
-		<spring.version>2.5.6.SEC01</spring.version>
-		<spring.webflow.version>2.0.9.RELEASE</spring.webflow.version>
+		<spring.version>4.0.6.RELEASE</spring.version>
+		<spring.webflow.version>2.4.1.RELEASE</spring.webflow.version>
 		<servlet.version>2.5</servlet.version>
 		<jstl.version>1.2</jstl.version>
 		<portlet-api.version>1.0</portlet-api.version>
@@ -102,11 +103,12 @@
 		<portletbridge.version>1.0.0.CR3</portletbridge.version>
 		<el.api.version>1.0</el.api.version>
 		<el.impl.api.version>2.0.2.CR1</el.impl.api.version>
-		<facelets.version>1.1.15</facelets.version>
-		<faces.version>1.2_12</faces.version>
-		<primefaces.version>1.1</primefaces.version>
-		<atmosphere.version>0.5</atmosphere.version>
-		<portlet-api.version>1.0</portlet-api.version>
+		<facelets.version>1.1.15.B1</facelets.version>
+		<!--faces.version>2.0.3</faces.version-->
+		<faces.version>2.1.19.1.Final-redhat-1</faces.version>
+		<primefaces.version>5.1</primefaces.version>
+		<atmosphere.version>2.2.4</atmosphere.version>
+		<portlet-api.version>2.0</portlet-api.version>
 		<log4j.version>1.2.9</log4j.version>
 		<commons-logging.version>1.1.1</commons-logging.version>
 		<commons-lang.version>2.5</commons-lang.version>

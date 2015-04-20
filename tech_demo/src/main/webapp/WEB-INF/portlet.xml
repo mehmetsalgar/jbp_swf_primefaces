@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
-	version="1.0">
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	id="TechDemo" >
 	<portlet>
 		<portlet-name>TechDemoPortlet</portlet-name>
 		<display-name>Tech Demo Portlet</display-name>
@@ -16,6 +16,7 @@
 			<value>/WEB-INF/servlet/techdemo/demo</value>
 		</init-param>
 
+
 		<expiration-cache>0</expiration-cache>
 
 		<supports>
@@ -26,4 +27,8 @@
 			<title>Tech Demo Portlet</title>
 		</portlet-info>
 	</portlet>
+	<container-runtime-option>
+		<name>javax.portlet.actionScopedRequestAttributes</name>
+		<value>true</value>
+	</container-runtime-option>
 </portlet-app>
