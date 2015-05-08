@@ -32,8 +32,8 @@
 				ajax="true">
 			</p:commandButton>
 			<p:commandButton id="textEntryRVC-wordCountList_action"
-				action="wordCount" value="Word Count on Text List" ajax="true"
-				update=":textEntryPageForm:list_results_rcv_pf_table,:textEntryPageForm:progress_panel" >
+				action="wordCount" value="Word Count on Text List" ajax="true" immediate="true"
+				update=":textEntryPageForm:progress_panel" >
 			</p:commandButton>
 		</h:panelGrid>
 	</p:outputPanel>

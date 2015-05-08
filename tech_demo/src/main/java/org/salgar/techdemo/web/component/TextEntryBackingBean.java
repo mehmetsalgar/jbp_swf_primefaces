@@ -1,9 +1,9 @@
 package org.salgar.techdemo.web.component;
 
-import java.io.Serializable;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.faces.event.ActionEvent;
-import org.apache.commons.lang.StringUtils;
+import java.io.Serializable;
 
 /**
  * Text Entry Backing Bean (RVC)

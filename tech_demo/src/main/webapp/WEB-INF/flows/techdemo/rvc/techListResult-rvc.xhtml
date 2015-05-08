@@ -8,6 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<h:panelGroup id="textListResultRVC-layout" style="border:1px solid">
+		<p:remoteCommand name="updateWordCountList" update="list_results_rcv_pf_table,progress_panel" process="@this" action="refresh"/>
 		<p:dataTable id="list_results_rcv_pf_table"
 			value="#{textListResultRVC.sentences}" var="sentence">
 			<p:column>
@@ -27,15 +28,15 @@
 			<h:graphicImage value="/images/progress_blu.gif" rendered="#{wordCountManagedBean.wordCountRunning}" />
 		</h:panelGroup>
 	</h:panelGroup>
-	<div style="visibility: hidden;"><p:commandButton
-		id="wordcount_refresh_action"
-		update=":textEntryPageForm:list_results_rcv_pf_table" action="refresh" />
-	</div>
+
+	<!-- http://www.primefaces.org/showcase/push/chat.jsf -->
+	<p:socket id="cometPush" onMessage="handlePublish"
+			  channel="/text_list" />
 
 	<script type="text/javascript">
 		function handlePublish(pushed) {
-			alert('we are there');
-			PrimeFaces.ajax.AjaxRequest('/portal/portal/default/TechDemoPortlet/TechDemoPortletWindow?action=1&amp;execution=e1s1',{formId:'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm',global:true},{'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm:wordcount_refresh_action':'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm:wordcount_refresh_action','primefacesPartialUpdate':'_#{facesContext.externalContext.response.namespace}:_viewRoot:textEntryPageForm:list_results_rcv_pf_table'});return false;			
-		}
+			updateWordCountList();
+	}
 	</script>
+
 </ui:composition>

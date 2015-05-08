@@ -27,6 +27,7 @@
 			<title>Tech Demo Portlet</title>
 		</portlet-info>
 	</portlet>
+	<!-- important for new version -->
 	<container-runtime-option>
 		<name>javax.portlet.actionScopedRequestAttributes</name>
 		<value>true</value>

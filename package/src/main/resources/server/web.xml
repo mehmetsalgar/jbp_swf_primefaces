@@ -139,16 +139,6 @@
       <servlet-name>default</servlet-name>
       <url-pattern>/images/login_top_right.png</url-pattern>
    </servlet-mapping>
-   
-   <filter>
-   	<filter-name>PrimefacesPortletFilter</filter-name>
-   	<filter-class>org.salgar.primefaces.portal.filter.PrimefacesPortalFilter</filter-class>   	
-   </filter>
-   
-   <filter-mapping>
-	<filter-name>PrimefacesPortletFilter</filter-name>
-	<servlet-name>PortalServletWithPathMapping</servlet-name>
-   </filter-mapping>   
 
    <session-config>
       <session-timeout>15</session-timeout>

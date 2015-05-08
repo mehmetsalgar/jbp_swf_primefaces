@@ -2,6 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"  
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"  
     version="3.0">
+	<display-name>TechDemo</display-name>
 	<context-param>
 		<param-name>com.sun.faces.expressionFactory</param-name>
 		<param-value>org.jboss.el.ExpressionFactoryImpl</param-value>
@@ -30,11 +31,6 @@
 		<param-name>org.gatein.portletbridge.WAR_BUNDLES_PORTLETBRIDGE</param-name>
 		<param-value>true</param-value>
 	</context-param>
-	<!-- Switching to Blocking I/O instead of asynchronous servlets -->
-    <context-param>
-        <param-name>org.atmosphere.useBlocking</param-name>
-        <param-value>true</param-value>
-    </context-param>
     
 	<!-- context-param> <param-name>org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL</param-name> 
 		<param-value>true</param-value> </context-param -->
@@ -73,23 +69,37 @@
 		</init-param>
 		<init-param>
 			<param-name>org.atmosphere.useNative</param-name>
-			<param-value>true</param-value>
+			<param-value>false</param-value>
 		</init-param>
 		<init-param>
 			<description>Force Atmosphere to use WebSocket. (default: true)</description>
 			<param-name>org.atmosphere.useWebSocket</param-name>
-			<param-value>true</param-value>
+			<param-value>false</param-value>
 		</init-param>
 		<init-param>
 			<description>Force Atmosphere to use WebSocket + Servlet 3.0 API. (default: false)</description>
 			<param-name>org.atmosphere.useWebSocketAndServlet3</param-name>
 			<param-value>false</param-value>
 		</init-param>
+		<init-param>
+			<description>Switching to Blocking I/O instead of asynchronous servlets</description>
+			<param-name>org.atmosphere.useBlocking</param-name>
+			<param-value>true</param-value>
+		</init-param>
 		<async-supported>true</async-supported>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Push Servlet</servlet-name>
 		<url-pattern>/primepush/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>GateInServlet</servlet-name>
+		<servlet-class>org.gatein.wci.api.GateInServlet</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GateInServlet</servlet-name>
+		<url-pattern>/gateinservlet</url-pattern>
 	</servlet-mapping>
 	<!--servlet-mapping> <servlet-name>CometServlet</servlet-name> <url-pattern>/primefaces_comet/*</url-pattern> 
 		</servlet-mapping -->

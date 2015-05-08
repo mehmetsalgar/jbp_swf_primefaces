@@ -1,10 +1,5 @@
 package org.salgar.techdemo.web.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.salgar.techdemo.common.model.Sentence;
 import org.salgar.techdemo.web.component.TextEntryBackingBean;
@@ -12,6 +7,10 @@ import org.salgar.techdemo.web.component.TextEntryBackingBeanConsumer;
 import org.salgar.techdemo.web.component.TextListBackingBeanConsumer;
 import org.salgar.techdemo.web.consumerstrategy.TextConsumerStrategy;
 import org.springframework.beans.factory.InitializingBean;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Managed Bean that holds the User entered Sentences

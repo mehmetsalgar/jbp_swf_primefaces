@@ -1,0 +1,47 @@
+<gatein-resources
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
+    xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
+
+  <scripts>
+    <name>jQuery</name>
+    <script>
+      <path>/javascripts/jquery_1_11.js</path>
+    </script>
+  </scripts>
+  <scripts>
+    <name>jquery-plugins</name>
+    <script>
+      <path>/javascripts/jquery-plugins.js</path>
+    </script>
+    <depends>
+      <scripts>jQuery</scripts>
+    </depends>
+  </scripts>
+  <scripts>
+    <name>primefaces</name>
+    <script>
+      <path>/javascripts/primefaces.js</path>
+    </script>
+    <depends>
+      <scripts>jquery-plugins</scripts>
+    </depends>
+  </scripts>
+  <scripts>
+    <name>push</name>
+    <script>
+      <path>/javascripts/push.js</path>
+    </script>
+    <depends>
+      <scripts>primefaces</scripts>
+    </depends>
+  </scripts>
+  <portlet>
+    <name>TechDemoPortlet</name>
+    <scripts>
+      <depends>
+        <scripts>push</scripts>
+      </depends>
+    </scripts>
+  </portlet>
+</gatein-resources>

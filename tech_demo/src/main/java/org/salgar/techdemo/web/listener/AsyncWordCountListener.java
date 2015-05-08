@@ -1,6 +1,6 @@
 package org.salgar.techdemo.web.listener;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.log4j.Logger;
 import java.util.List;
 
@@ -45,7 +45,7 @@ public class AsyncWordCountListener implements AsyncListener {
         	LOG.debug("Sending asynchronous message!");
         }
         EventBus eventBus = EventBusFactory.getDefault().eventBus();
-        eventBus.publish(CHANNEL , new FacesMessage(StringEscapeUtils.escapeHtml("sentences are refreshed")));
+        eventBus.publish(CHANNEL , new FacesMessage(StringEscapeUtils.escapeHtml4("sentences are refreshed"), StringEscapeUtils.escapeHtml4("sentences are refreshed")));
     }
 
     /**

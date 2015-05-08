@@ -7,7 +7,7 @@
 	<groupId>org.salgar</groupId>
 	<artifactId>jbp_swf_primefaces</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>2.0-SNAPSHOT</version>
 	<name>JBoss Portal - Spring Web Flow - Primefaces - Technology Demo</name>
 	<build>
 		<plugins>
@@ -21,8 +21,8 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
+					<source>1.6</source>
+					<target>1.6</target>
 					<!--
 						ensure that the compile uses the same encoding as the file encoding of the *.java
 					-->
@@ -82,36 +82,27 @@
 	
 	<modules>
 		<module>dispatcher-portlet</module>
-		<module>mridge</module>
-		<module>portal-filter</module>
-		<!--module>primefaces-patch</module-->
-		<!--module>webflow-patch</module-->
-		<!--module>comet</module-->
+		<module>primefaces-patch</module>
 		<module>spring-faces-patch</module>
-    	<module>tech_demo</module>          
-    	<module>package</module>
+		<module>tech_demo</module>
+		<module>package</module>
   </modules>
 	
 	<properties>
-		<aspectj.version>1.6.8</aspectj.version>
-		<spring.version>4.0.6.RELEASE</spring.version>
+		<spring.version>4.1.6.RELEASE</spring.version>
 		<spring.webflow.version>2.4.1.RELEASE</spring.webflow.version>
-		<servlet.version>2.5</servlet.version>
+		<servlet.version>3.1.0</servlet.version>
 		<jstl.version>1.2</jstl.version>
-		<portlet-api.version>1.0</portlet-api.version>
-		<jsf.portlet.version>1.2.5</jsf.portlet.version>
-		<portletbridge.version>1.0.0.CR3</portletbridge.version>
 		<el.api.version>1.0</el.api.version>
 		<el.impl.api.version>2.0.2.CR1</el.impl.api.version>
-		<facelets.version>1.1.15.B1</facelets.version>
-		<!--faces.version>2.0.3</faces.version-->
 		<faces.version>2.1.19.1.Final-redhat-1</faces.version>
-		<primefaces.version>5.1</primefaces.version>
-		<atmosphere.version>2.2.4</atmosphere.version>
+		<sun.faces.version>2.1.19-redhat-1</sun.faces.version>
+		<primefaces.version>5.2</primefaces.version>
+		<atmosphere.version>2.3.0</atmosphere.version>
 		<portlet-api.version>2.0</portlet-api.version>
 		<log4j.version>1.2.9</log4j.version>
 		<commons-logging.version>1.1.1</commons-logging.version>
-		<commons-lang.version>2.5</commons-lang.version>
+		<commons-lang.version>3.0.1</commons-lang.version>
 		<junit.version>4.8.1</junit.version>
 	</properties>
 		

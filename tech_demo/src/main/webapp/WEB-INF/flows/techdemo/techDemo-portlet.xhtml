@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <f:view contentType="text/html" encoding="UTF-8"
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:sf="http://www.springframework.org/tags/faces"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:p="http://primefaces.org/ui">
-	<h:head>
-		<title>Tech Demo JBoss GateIn Portal - Spring Webflow -
-			Primefaces</title>
-		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-		<sf:resource path="css/style.css" />
-	</h:head>
-	<body>
-		<p:socket id="cometPush" onMessage="handlePublish"
-			channel="/text_list" widgetVar="textSocket" />
-		<ui:include src="page/techEntry-page.xhtml" />
-	</body>
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:sf="http://www.springframework.org/tags/faces"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Tech Demo JBoss GateIn Portal - Spring Webflow -
+            Primefaces</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+        <sf:resource path="css/style.css"/>
+
+    </h:head>
+
+    <body>
+        <!--script>
+            $(function(){
+                        alert('we are here 2');
+                        var head = document.getElementsByTagName('head')[0];
+                        var script = document.createElement('script');
+                        script.type ='text/javascript';
+                        script.src = '/portal/scripts/3.6.3.Final-redhat-4/SHARED/primefaces_js.js';
+                        head.appendChild(script);
+                        alert('we are here - primefaces.js');
+                    }
+            );
+
+        </script-->
+        <ui:include src="page/techEntry-page.xhtml"/>
+   </body>
 </f:view>

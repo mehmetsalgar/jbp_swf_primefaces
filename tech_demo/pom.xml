@@ -6,30 +6,12 @@
 	<parent>
 		<artifactId>jbp_swf_primefaces</artifactId>
 		<groupId>org.salgar</groupId>
-		<version>1.0-SNAPSHOT</version>
+		<version>2.0-SNAPSHOT</version>
 	</parent>
 	<groupId>org.salgar</groupId>
 	<artifactId>tech_demo</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
 	<name>JBoss Portal - Spring Web Flow - Primefaces - Technology Demo Portlet</name>
-
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-					<!-- ensure that the compile uses the same encoding as the file encoding 
-						of the *.java -->
-					<compilerArguments>
-						<encoding>utf8</encoding>
-					</compilerArguments>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
 	<dependencies>
 		<!-- INTERNAL -->
@@ -46,7 +28,7 @@
 		<dependency>
 			<groupId>org.salgar.spring.faces</groupId>
 			<artifactId>spring-faces-patch</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 		<!--dependency>
 			<groupId>org.salgar</groupId>
@@ -57,7 +39,7 @@
 		<!-- JSF -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
+			<artifactId>javax.servlet-api</artifactId>
 			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
@@ -98,7 +80,7 @@
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
-			<version>2.1.19-redhat-1</version>
+			<version>${sun.faces.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- dependency>
@@ -113,7 +95,7 @@
 		</dependency-->
 
 		<!-- Primefaces -->
-		<!--dependency>
+		<dependency>
 			<groupId>org.salgar</groupId>
 			<artifactId>patch-primefaces-assembly</artifactId>
 			<version>${project.version}</version>
@@ -127,24 +109,27 @@
 					<artifactId>patch-primefaces</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency-->
-		<dependency>
+		</dependency>
+		<!--dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>${primefaces.version}</version>
-		</dependency>
+		</dependency-->
+
+
 		<!-- https://github.com/Atmosphere/atmosphere/wiki/Installing-JBoss-WebSocket-Support -->
+		<!-- http://stackoverflow.com/questions/10227993/jboss-7-1-1-and-jboss-web-native -->
 		<!-- Atmosphere (Comet) -->
 		<dependency>
 			<groupId>org.atmosphere</groupId>
-			<!-- artifactId>atmosphere-runtime</artifactId-->
 			<artifactId>atmosphere-runtime</artifactId>
+			<!--artifactId>atmosphere-runtime-native</artifactId-->
 			<version>${atmosphere.version}</version>
 			<exclusions>
-				<exclusion>
+				<!--exclusion>
 					<groupId>org.atmosphere</groupId>
 					<artifactId>atmosphere-compat-jbossweb</artifactId>
-				</exclusion>
+				</exclusion-->
 				<!-- exclusion>
 					<groupId>org.atmosphere</groupId>
 					<artifactId>atmosphere-compat-tomcat</artifactId>
@@ -155,12 +140,21 @@
 				</exclusion-->
 			</exclusions>
 		</dependency>
-		<dependency>
+		<!--dependency>
 			<groupId>org.atmosphere.jboss.as</groupId>
-			<!-- artifactId>atmosphere-runtime</artifactId-->
 			<artifactId>jboss-as-websockets</artifactId>
 			<version>0.5</version>
 		</dependency>
+		<dependency>
+			<groupId>org.atmosphere</groupId>
+			<artifactId>atmosphere-compat-jbossweb</artifactId>
+			<version>2.0.1</version>
+		</dependency-->
+		<!--dependency>
+
+			<artifactId>jboss-as-websockets</artifactId>
+			<version>0.5</version>
+		</dependency-->
 		
 
 		<!-- Portlet -->
@@ -197,12 +191,6 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>${commons-lang.version}</version>
 		</dependency>
 
 		<!-- COMPILE -->
@@ -264,6 +252,11 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang.version}</version>
 		</dependency>
 	</dependencies>
 

@@ -6,9 +6,6 @@
 
     <portlet>
         <portlet-name>TechDemoPortlet</portlet-name>
-        <header-content>
-           
-        </header-content>
     </portlet>
 
 </portlet-app>
