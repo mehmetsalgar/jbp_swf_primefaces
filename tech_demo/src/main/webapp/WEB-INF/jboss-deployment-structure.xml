@@ -4,14 +4,10 @@
         <module-alias name="org.salgar.jbp_swf.techdemo-war"/>
         <exclusions>
         	<module name="com.sun.jsf-impl" slot="main"/>
-       		<module name="org.jboss.portletbridge.api" slot="main"/>
-        	<module name="org.jboss.portletbridge.impl" slot="main"/>
         </exclusions>
         <dependencies>
         	<module name="javax.faces.api"/>
         	<module name="com.sun.jsf-impl"/>
-       		<!--module name="com.sun.jsf-impl"/>
-        	<module name="javax.faces.api"/-->
         </dependencies>
     </deployment>
 </jboss-deployment-structure>

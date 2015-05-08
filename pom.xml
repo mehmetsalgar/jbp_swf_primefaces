@@ -1,109 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<!--  reference to the parent pom -->
+  <modelVersion>4.0.0</modelVersion>
+  <!--  reference to the parent pom -->
 
 
-	<groupId>org.salgar</groupId>
-	<artifactId>jbp_swf_primefaces</artifactId>
-	<packaging>pom</packaging>
-	<version>2.0-SNAPSHOT</version>
-	<name>JBoss Portal - Spring Web Flow - Primefaces - Technology Demo</name>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<configuration>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<!--
-						ensure that the compile uses the same encoding as the file encoding of the *.java
-					-->
-					<compilerArguments>
-						<encoding>utf8</encoding>
-					</compilerArguments>
-				</configuration>			
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>								
-				</configuration>
-			</plugin>
-			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-source-plugin</artifactId>
-			  <executions>
-			     <execution>
-				<id>attach-sources</id>
-				<phase>verify</phase>
-				<goals>
-				   <goal>jar</goal>
-				</goals>
-			     </execution>
-			  </executions>
-		       </plugin>
-		</plugins>
-	</build>
-	
-	<repositories>
-	    <repository>
-	      <id>jboss</id>
-	      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-	    </repository>
-	    <repository>
-	      <id>primefaces</id>
-	      <url>http://repository.prime.com.tr/</url>
-	    </repository>
-	    <repository>
-	      <id>Springsource Bundles Release</id>
-	      <url>http://repository.springsource.com/maven/bundles/release</url>
-	    </repository>
-	    <repository>
-	      <id>Springsource Bundles External</id>
-	      <url>http://repository.springsource.com/maven/bundles/external</url>
-	    </repository>
-	    <repository>
-	      <id>Springsource Libraries Release</id>
-	      <url>http://repository.springsource.com/maven/libraries/release</url>
-	    </repository>
-	    <repository>
-	      <id>Springsource Libraries External</id>
-	      <url>http://repository.springsource.com/maven/libraries/external</url>
-	    </repository>
-  	</repositories>
-	
-	<modules>
-		<module>dispatcher-portlet</module>
-		<module>primefaces-patch</module>
-		<module>spring-faces-patch</module>
-		<module>tech_demo</module>
-		<module>package</module>
+  <groupId>org.salgar</groupId>
+  <artifactId>jbp_swf_primefaces</artifactId>
+  <packaging>pom</packaging>
+  <version>2.0-SNAPSHOT</version>
+  <name>JBoss Portal - Spring Web Flow - Primefaces - Technology Demo</name>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+          <!--
+            ensure that the compile uses the same encoding as the file encoding of the *.java
+          -->
+          <compilerArguments>
+            <encoding>utf8</encoding>
+          </compilerArguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>jboss</id>
+      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+    </repository>
+    <repository>
+      <id>primefaces</id>
+      <url>http://repository.prime.com.tr/</url>
+    </repository>
+    <repository>
+      <id>Springsource Bundles Release</id>
+      <url>http://repository.springsource.com/maven/bundles/release</url>
+    </repository>
+    <repository>
+      <id>Springsource Bundles External</id>
+      <url>http://repository.springsource.com/maven/bundles/external</url>
+    </repository>
+    <repository>
+      <id>Springsource Libraries Release</id>
+      <url>http://repository.springsource.com/maven/libraries/release</url>
+    </repository>
+    <repository>
+      <id>Springsource Libraries External</id>
+      <url>http://repository.springsource.com/maven/libraries/external</url>
+    </repository>
+  </repositories>
+
+  <modules>
+    <module>dispatcher-portlet</module>
+    <module>primefaces-patch</module>
+    <module>spring-faces-patch</module>
+    <module>tech_demo</module>
+    <module>package</module>
   </modules>
-	
-	<properties>
-		<spring.version>4.1.6.RELEASE</spring.version>
-		<spring.webflow.version>2.4.1.RELEASE</spring.webflow.version>
-		<servlet.version>3.1.0</servlet.version>
-		<jstl.version>1.2</jstl.version>
-		<el.api.version>1.0</el.api.version>
-		<el.impl.api.version>2.0.2.CR1</el.impl.api.version>
-		<faces.version>2.1.19.1.Final-redhat-1</faces.version>
-		<sun.faces.version>2.1.19-redhat-1</sun.faces.version>
-		<primefaces.version>5.2</primefaces.version>
-		<atmosphere.version>2.3.0</atmosphere.version>
-		<portlet-api.version>2.0</portlet-api.version>
-		<log4j.version>1.2.9</log4j.version>
-		<commons-logging.version>1.1.1</commons-logging.version>
-		<commons-lang.version>3.0.1</commons-lang.version>
-		<junit.version>4.8.1</junit.version>
-	</properties>
-		
+
+  <properties>
+    <spring.version>4.1.6.RELEASE</spring.version>
+    <spring.webflow.version>2.4.1.RELEASE</spring.webflow.version>
+    <servlet.version>3.1.0</servlet.version>
+    <jstl.version>1.2</jstl.version>
+    <el.api.version>1.0</el.api.version>
+    <el.impl.api.version>2.0.2.CR1</el.impl.api.version>
+    <faces.version>2.1.19.1.Final-redhat-1</faces.version>
+    <sun.faces.version>2.1.19-redhat-1</sun.faces.version>
+    <primefaces.version>5.2</primefaces.version>
+    <atmosphere.version>2.3.0</atmosphere.version>
+    <portlet-api.version>2.0</portlet-api.version>
+    <log4j.version>1.2.9</log4j.version>
+    <commons-logging.version>1.1.1</commons-logging.version>
+    <commons-lang.version>3.0.1</commons-lang.version>
+    <junit.version>4.8.1</junit.version>
+  </properties>
+
 </project>
